@@ -1,22 +1,26 @@
+// "use client";
 import React from "react";
 import styles from "./blog.module.css";
 import Postcard from "@/components/postCard/Postcard";
+import { getPosts } from "@/lib/data";
 
-const BlogPage = () => {
+//USING API KEY
+// const getData = async () => {
+//   const res = await fetch("https://jsonplaceholder.typicode.com/posts").then(
+//     (response) => response.json()
+//   );
+//   return res;
+// };
+
+const BlogPage = async () => {
+  const posts = await getPosts();
   return (
     <div className={styles.container}>
-      <div className={styles.post}>
-        <Postcard />
-      </div>
-      <div className={styles.post}>
-        <Postcard />
-      </div>
-      <div className={styles.post}>
-        <Postcard />
-      </div>
-      <div className={styles.post}>
-        <Postcard />
-      </div>
+      {posts.map((post) => (
+        <div className={styles.post} key={post.id}>
+          <Postcard post={post} />
+        </div>
+      ))}
     </div>
   );
 };

@@ -31,7 +31,7 @@
   margin-bottom: 20px;
 }
 
-.desc{
+.description{
   width: 90%;
   margin-bottom: 20px;
   font-weight: 300;
@@ -40,4 +40,14 @@
 
 .link{
   text-decoration: underline;
+}
+
+@media (max-width:768px){
+  .title{
+    display: flex;
+    text-align: center;
+  }
+  .description{
+    text-align: center;
+  }
 }
